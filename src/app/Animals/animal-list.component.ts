@@ -26,20 +26,20 @@ export class AnimalListComponent {
   list:any=[
     {id:'101',
       name:"Dog",
-      briefDescription:"Most Loved Animal",
-      imageUrl:"../../assets/download.jpeg"
+      briefDescription:"I m Dog",
+      imageUrl:"../../assets/dog.jpg"
 },
 {
   id:"102",
   name:"Lion",
-  briefDescription:"Jungle King",
-  imageUrl:"../../assets/Lion_waiting_in_Namibia.jpg"
+  briefDescription:"I am Jungle King",
+  imageUrl:"../../assets/lion.jpg"
 },
 {
   id:"103",
-  name:"Elephant",
-  briefDescription:"The only animal who can't jump",
-  imageUrl:"../../assets/African-savanna-elephant.webp"
+  name:"Cat",
+  briefDescription:"I am cute",
+  imageUrl:"../../assets/cat.jpg"
 }
   ]
 

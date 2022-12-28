@@ -85,7 +85,8 @@ productSelected(product:Product):void{
 enum Category{
   Kitchen='kitchen',
   Electric='electric',
-  HouseHold='houseHold'
+  HouseHold='houseHold',
+  
 }
 
 interface Product{

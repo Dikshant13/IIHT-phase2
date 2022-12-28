@@ -131,11 +131,19 @@ let products=[
     }
      ,{
       "id":5,
-      "name":"Chimney",
-      "price":"40000",
-      "imageUrl":"../../assets/chimney.jpeg",
-      "rating":3.5,
-      "category":"Category.Kitchen"
+      "name":"Table",
+      "price":"5000",
+      "imageUrl":"../../assets/table.jpg",
+      "rating":2,
+      "category":"Category.Household"
+    }
+    ,{
+      "id":6,
+      "name":"Chair",
+      "price":"6000",
+      "imageUrl":"../../assets/chair.jpg",
+      "rating":3,
+      "category":"Category.Household"
     }
   ]
 

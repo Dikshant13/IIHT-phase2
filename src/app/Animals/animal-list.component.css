@@ -1,4 +1,10 @@
 body{
-    background-color: red;
+    background-color: green;
 
+}
+
+img:hover{
+    transform: scale(1.3);
+    transition-duration: 2s;
+    box-shadow: 1px 1px red;
 }

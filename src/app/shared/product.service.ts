@@ -109,17 +109,9 @@ export class ProductService{
        },
        catchError(this.errorHandler))
  
- 
      );
  
- 
- 
- 
- 
    }
- 
- 
- 
  
    //update a product
    // means two steps -- one when the user selects a particular data from the list and clicks on edit button
@@ -149,23 +141,8 @@ export class ProductService{
      catchError(this.errorHandler)
      );
  
- 
- 
- 
- 
- 
     }
- 
- 
- 
- 
- 
  }
-
-
-
-
-
 
 
 enum Category{
