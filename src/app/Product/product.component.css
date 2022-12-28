@@ -1,0 +1,28 @@
+img{
+    height: 60px;
+    width: 60px;
+}
+h1{
+    text-align: center;
+    background-color: rgb(235, 247, 8);
+}
+thead{
+    color: rgb(221, 39, 39);
+}
+
+img:hover{
+    transform: scale(1.6);
+    transition-duration: 2s;
+    transform-style: preserve-3d;
+    box-shadow: 1px 1px red;
+}
+.container{
+    display: flex;
+}
+.productList{
+    flex:60%
+}
+.shoppingCart{
+    margin-left:2%;
+    flex:40%;
+}
