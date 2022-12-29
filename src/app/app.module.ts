@@ -7,7 +7,7 @@ import { PentHouseComponent2 } from './pent-house/pent-house.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FlagListComponent } from './flats/flag-list.component';
 import { AnimalListComponent } from './Animals/animal-list.component';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { ProductComponent } from './Product/product.component';
 import { StarComponent } from './star/star.component';
 import { ShoppingCartComponent } from './shoppingCart/shopping-cart.component';
@@ -19,6 +19,15 @@ import { HttpClientInMemoryWebApiModule, InMemoryWebApiModule } from 'angular-in
 import { DBServie } from './shared/dataBaseService';
 import { ProductAddComponent } from './Product/product-add.component';
 import { RepeatDataPipe } from './pipe/repeat.pipe';
+import { EmployeeComponent } from './employee/employee.component';
+import { TrusteeComponent } from './trustee/trustee.component';
+import { BookComponent } from './book/book.component';
+// import { Trusteecomponent } from './trustee/trustee.component';
+// import { EmpFormComponent } from './emp-form/emp-form.component';
+// import { StudentComponent } from './student/student.component';
+// import { BookComponent } from './book/book.component';
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -36,7 +45,14 @@ import { RepeatDataPipe } from './pipe/repeat.pipe';
       NavbarComponent,
     EventBootComponent,
     ProductAddComponent,
-    RepeatDataPipe
+    RepeatDataPipe,
+    EmployeeComponent,
+    TrusteeComponent,
+    BookComponent,
+    // TrusteeComponent,
+    // EmpFormComponent,
+    // StudentComponent,
+    // BookComponent
    
 
     
@@ -47,6 +63,7 @@ import { RepeatDataPipe } from './pipe/repeat.pipe';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    ReactiveFormsModule,
     HttpClientInMemoryWebApiModule.forRoot(DBServie),
   ],
   providers: [],

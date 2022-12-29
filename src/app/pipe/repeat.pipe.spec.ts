@@ -21,9 +21,9 @@ describe('RepeatDataPipe', () => {
 
     const pipe = new RepeatDataPipe();
 
-    const data = pipe.transform("vansh",2);
+    const data = pipe.transform("vansh",1);
 
-    expect(data).toEqual("vansh");
+    expect(data).toEqual("vansh vansh");
 
   });
 

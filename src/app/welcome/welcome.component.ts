@@ -7,8 +7,8 @@ import { LoggingServie } from 'src/app/shared/logging.service';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
-  welcomeMessage:string="Hello World";
-  // data: number=3;
+  welcomeMessage:string="Welcome to Our Application";
+  data: number=4;
   title:string="Welcome";
   constructor(private loggingService:LoggingServie){};
 
