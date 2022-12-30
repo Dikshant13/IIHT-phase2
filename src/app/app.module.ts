@@ -21,7 +21,9 @@ import { ProductAddComponent } from './Product/product-add.component';
 import { RepeatDataPipe } from './pipe/repeat.pipe';
 import { EmployeeComponent } from './employee/employee.component';
 import { TrusteeComponent } from './trustee/trustee.component';
-import { BookComponent } from './book/book.component';
+import { BookListComponent } from './book/book.component';
+import { HomeComponent } from './home/home.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 // import { Trusteecomponent } from './trustee/trustee.component';
 // import { EmpFormComponent } from './emp-form/emp-form.component';
 // import { StudentComponent } from './student/student.component';
@@ -48,7 +50,9 @@ import { BookComponent } from './book/book.component';
     RepeatDataPipe,
     EmployeeComponent,
     TrusteeComponent,
-    BookComponent,
+    BookListComponent,
+    HomeComponent,
+    AboutUsComponent,
     // TrusteeComponent,
     // EmpFormComponent,
     // StudentComponent,

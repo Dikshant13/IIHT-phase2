@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
 
-  selector: 'app-book',
+  selector: 'app-book-list',
 
   templateUrl: './book.component.html',
 
@@ -14,44 +13,73 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 })
 
-export class BookComponent {
+export class BookListComponent implements OnInit {
 
-  bookForm: FormGroup;
+  pageTitle='Book-List';
 
-  constructor(private formBuilder:FormBuilder) {
+  bookForm!:FormGroup;
 
-    //step 1 :you have to create form model
+   constructor(private formBuilder:FormBuilder) {}
+
+   ngOnInit(): void {
 
     this.bookForm=this.formBuilder.group({
 
 
 
+         id:["1",[Validators.required,Validators.max(15)]],
 
-         id:['1',[Validators.required,Validators.max(1)]],
-
-         title:['Java',[Validators.required,Validators.minLength(3)]],
-
-         date:['2022-06-04',[Validators.required]],
-
-       
+         title:['The Secret',[Validators.required,Validators.minLength(6)]],
 
          author:this.formBuilder.group({
 
+            author_name:['John',[Validators.required,Validators.maxLength(15),Validators.minLength(3),Validators.pattern('^[a-zA-Z ]*$')]],
 
+            email:['John@gmail.com',[Validators.required,Validators.email]],
 
-          name:['aman',[Validators.required]],
+         }),
 
-          email:['aman@gmail.com',[Validators.required,Validators.email]],
+        dateofpublishing:['2021-06-05',[Validators.required]],
 
-          //country:['',[Validators.required]]
-
-         })
+        publisher:this.formBuilder.array([])
 
     })
 
   }
 
+ 
 
+    publisher():FormArray{
+
+      return this.bookForm.get('publisher') as FormArray;
+
+    }
+
+    newPublisher():FormGroup{
+
+      return this.formBuilder.group({
+
+         co_name:'',
+
+         co_id:'',
+
+      })
+
+    }
+
+
+
+    addPublisher(){
+
+      this.publisher().push(this.newPublisher());
+
+    }
+
+    removePublisher(publisherIndex:number){
+
+      this.publisher().removeAt(publisherIndex)
+
+    }
 
     get id(){
 
@@ -69,26 +97,11 @@ export class BookComponent {
 
 
 
-    get date(){
+    get author_name(){
 
-      return this.bookForm.get("date");
-
-
+      return this.bookForm.get("author")?.get("author_name");
 
     }
-
-
-
-   
-
-    get name(){
-
-      return this.bookForm.get("author")?.get("name");
-
-
-
-    }
-
 
 
     get email(){
@@ -98,18 +111,22 @@ export class BookComponent {
     }
 
 
+    get dateofpublishing(){
+
+     return this.bookForm.get("dateofpublishing");
+
+    }
 
     onSubmit(){
+
+      console.log('Form submitted');
 
       console.log(this.bookForm.value);
 
     }
 
+    resetForm() {
 
-
-   
-
-
+    }
 
 }
-
