@@ -24,6 +24,7 @@ import { TrusteeComponent } from './trustee/trustee.component';
 import { BookListComponent } from './book/book.component';
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { LoginComponent } from './login/login.component';
 // import { Trusteecomponent } from './trustee/trustee.component';
 // import { EmpFormComponent } from './emp-form/emp-form.component';
 // import { StudentComponent } from './student/student.component';
@@ -53,6 +54,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     BookListComponent,
     HomeComponent,
     AboutUsComponent,
+    LoginComponent,
     // TrusteeComponent,
     // EmpFormComponent,
     // StudentComponent,
