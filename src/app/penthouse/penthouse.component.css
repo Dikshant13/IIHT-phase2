@@ -1,0 +1,10 @@
+p{
+    background-color: yellow;
+    color: red;
+    border: 1px solid;
+    text-align: right;
+    height: 45px;
+    font-size: 25px;
+    margin:15px;
+    border-radius: 15px;
+}

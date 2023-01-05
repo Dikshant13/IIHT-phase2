@@ -1,23 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { LoggingServie } from 'src/app/shared/logging.service';
+import { Component } from "@angular/core";
+import { LoggingService } from "src/app/shared/logging.service";
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+    selector: 'welcome',
+    templateUrl: './welcome.component.html',
+    styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent {
-  welcomeMessage:string="Welcome to Our Application";
-  data: number=4;
-  title:string="Welcome";
-  constructor(private loggingService:LoggingServie){};
+
+export class WelcomeComponent{
+
+    constructor(private loggingService: LoggingService){}
 
 
- 
-  thisFun(){
-    this.loggingService.log("button is called");
+    //value:string=this.loggingService.log();
+
+    logValue():void{
+        console.log(this.loggingService.log());
     }
-
-  
-
+    
+    num:number=2;
+    name:string= 'Dikshant';
+    title:string="My name is Dikshant ";
 }

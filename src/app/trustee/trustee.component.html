@@ -1,86 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
 
+    <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" [routerLink]="['book']">Book<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['trustee']">Trustee</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['about-us']">About-us</a>
-          </li>
-  
-          </ul>
-        </div></nav>
-  
-    
+<div id="container">
+        <div class="card">
+            <div class="card-header" style="height: 45px; background-color: rgb(234, 80, 69); color: white; font-size: 28px; text-align:center;font-weight: bold;">
+              Trustee Form
+            </div>
+            <div class="card-body">
+              <form autocomplete="false" #trusteeForm="ngForm" name="trusteeForm" (ngSubmit)="onSubmit(trusteeForm)">
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">ID</label>
+                    <div class="col-sm-10">
+                      <input type="text" #id="ngModel" name="id" class="form-control" id="colFormLabel" placeholder="Enter Your ID" required pattern="T[0-9]{3}" ngModel>
+                    </div>
+                    <div *ngIf="!id?.valid && (id?.dirty || id?.touched)" class="error">
+                        <div *ngIf="id.errors?.['required']">
+                          ID is required
+                     </div>
+                     <div *ngIf="id.errors?.['pattern']">
+                         Please Provide ID in proper pattern
+                    </div>
+                 
+                 
+                     </div>
+                  </div>
 
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">NAME</label>
+                    <div class="col-sm-10">
+                      <input type="text" #name="ngModel" name="name" class="form-control" id="colFormLabel" placeholder="Enter Your Name" required pattern="[A-za-z]*" ngModel>
+                    </div>
 
+                    <div *ngIf="!name?.valid && (name?.dirty || name?.touched)" class="error">
+                        <div *ngIf="name.errors?.['required']">
+                          Name is required
+                     </div>
+                     <div *ngIf="name.errors?.['pattern']">
+                         Please Provide Name in proper pattern
+                    </div>
+                 
+                 
+                     </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">GENDER</label>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" value="male" #gender="ngModel" ngModel id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              MALE
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input"  type="radio" name="gender" value="female" #gender="ngModel" ngModel id="flexRadioDefault2" >
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              FEMALE
+                            </label>
+                          </div>
+                      </div>
+                     
+                  </div>
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">COUNTRY OF RESIDENCE</label>
+                    <div class="col-sm-10">
+                    <select (click)="changeCountry()" class="form-select" #country="ngModel" name="country" aria-label="Default select example" required ngModel>
+                        <option  [ngValue]="c.id" *ngFor="let c of countries">{{c.name}}</option>
+                        
+                      </select>
+                      </div>
+                      <div *ngIf="!country?.valid && (country?.dirty || country?.touched)" class="error">
+                        <div *ngIf="country.errors?.['required']">
+                          Country is required
+                     </div>
+                   
+                 
+                 
+                     </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">PASSPORT ID</label>
+                    <div class="col-sm-10">
+                      <input type="text" #passport="ngModel" name="passport" class="form-control" id="colFormLabel" required placeholder="Enter Your Passport ID" ngModel>
+                    </div>
+                  </div>
+                  <div *ngIf="!passport?.valid && (passport?.dirty || passport?.touched)" class="error">
+                    <div *ngIf="passport.errors?.['required']">
+                      Passport is required
+                 </div>
+               
+             
+             
+                 </div>
 
-
-
-
-
-
-
-
-
-<form #trusteeForm="ngForm" (ngSubmit)="subData(trusteeForm)" >
-    
-    <div class="form-group">
-    <p>
-        <label  for="id">ID:</label>
-        <input class="form-control" #id="ngModel" type="number" name="id" id="id" required min="1"   [(ngModel)]="trust.id">
-    </p>
-    <div *ngIf="!id.valid && ( id.dirty || id.touched)" class="error">
-        <div *ngIf="id.errors?.['required']">ID is Required</div>
-        <div *ngIf="id.errors?.['min']">Min ID can be 1</div>
-        
-    </div>
-    
-    <p>
-        <label for="name">Name:</label>
-        <input class="form-control" #firstname="ngModel" type="text" name="name" id="name" required minlength="3" [(ngModel)]="trust.name">
-    </p>
-    <div *ngIf="!firstname.valid && ( firstname.dirty || firstname.touched)" class="error">
-        <div *ngIf="firstname.errors?.['required']">Name is Required</div>
-        <div *ngIf="firstname.errors?.['minlength']">Min Length should be of 3 chars</div>
-    </div>
-    <br>
-    <p>
-        <label for="gender">Gender:</label>
-        <input type="radio" name="gender" id="gender" checked>Male
-        <input type="radio" name="gender" id="gender" >Female
-    </p>
-    <p>
-        <label for="country">Country:</label>
-        <select #country name="country" id="country" required>
-            <option [ngValue]="c.id" *ngFor="let c of countries">{{c.name}}</option>
-        </select>
-    </p>
-
-    <p>
-        <label for="passport">Passport:</label>
-        <input class="form-control" type="text" name="passport" id="passport" required [(ngModel)]="trust.passport">
-    </p>
-    <p>
-        <label for="date">Date:</label>
-        <input class="form-control"  type="date" name="date" id="date" required [(ngModel)]="trust.issuanceDate">
-    </p>
-
-    <p>
-        <label for="num">Number Of Dependents:</label>
-        <input class="form-control" type="number" name="num" id="num" required  [(ngModel)]="trust.noOfDependents">
-    </p>
-    <button type="reset"  class="btn btn-danger" >Reset</button>
-    <button type="submit" class="btn btn-success" [disabled]="trusteeForm.invalid">Submit</button>
-    </div>
-
-</form>
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">INSURANCE DATE</label>
+                    <div class="col-sm-10">
+                      <input type="date" value="2022-10-08" #date="ngModel" max="2022-12-29" name="date" class="form-control" id="colFormLabel" required ngModel>
+                    </div>
+                  </div>
+                  <div *ngIf="!date?.valid && (date?.dirty || date?.touched)" class="error">
+                    <div *ngIf="date.errors?.['required']">
+                      Insurance Date is required
+                 </div>
+                 <div *ngIf="date.errors?.['max']">
+                    Please Give Correct Insurance Date
+               </div>
+               
+             
+             
+                 </div>
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">NUMBER OF DEPENDENTS</label>
+                    <div class="col-sm-10">
+                      <input type="number" #dependent="ngModel" min=1 max=10 name="dependent" class="form-control" required id="colFormLabel" placeholder="Enter Your Number Of Dependents" ngModel>
+                    </div>
+                  </div>
+                  <div *ngIf="!dependent?.valid && (dependent?.dirty || dependent?.touched)" class="error">
+                    <div *ngIf="dependent.errors?.['required']">
+                      Dependent is required
+                 </div>
+                 <div *ngIf="dependent.errors?.['min']">
+                    Minimum Dependent is 1
+               </div>
+               <div *ngIf="dependent.errors?.['max']">
+                    Maximum Dependent can be 10
+           </div>
+                 </div>
+                  <button type="submit" class="btn btn-primary" style="margin-left: 300px; " [disabled]="!trusteeForm.valid">SUBMIT</button>
+                  <button type="reset" class="btn btn-warning" style="margin-left: 80px;">RESET</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </body>
+</html>

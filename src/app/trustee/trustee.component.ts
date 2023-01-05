@@ -1,23 +1,16 @@
-import { Component } from '@angular/core';
-
-Component({
-  selector: 'app-trustee',
-  templateUrl: './trustee.component.html',
-  styleUrls: ['./trustee.component.css']
-})
-
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ITrustee } from '../trusteeInteface';
+import { Trustee } from './trustee';
 
-export class Country{
-  id!:string;
-  name!:string;
+
+export class country{
+  id:string='';
+  name:string='';
 
   constructor(id:string,name:string){
     this.id=id;
     this.name=name;
   }
-
 }
 
 @Component({
@@ -25,30 +18,52 @@ export class Country{
   templateUrl: './trustee.component.html',
   styleUrls: ['./trustee.component.css']
 })
-export class TrusteeComponent {
 
 
-  countries: Country[]=[
-    new Country("1","India"),
-    new Country("2","Japan"),
-    new Country("3","Russia")
+
+export class TrusteeComponent implements OnInit{
+  @ViewChild('trusteeForm',{})trusteeForm!:NgForm;
+  
+
+  countries:country[]=[
+    new country("1","India"),
+    new country("2","Germany"),
+    new country("3","New Zealand"),
+    new country("4","Japan"),
+    new country("5","America"),
+    new country("6","Austraila")
   ];
 
-   trust:ITrustee={id:0,name:'',gender:'',countryOfResidence:'', passport: '' , issuanceDate:new Date,noOfDependents:0};
+  trus!:Trustee;
 
-   subData(form:NgForm){
-    if(form.invalid){
-      console.log("Invalid");
-      return;
-    }else{
-      console.log("Success");
-    }
-   }
-   reset(){
-    this.trust.id=0;
-    this.trust.name='';
-    this.trust.passport='';
-    this.trust.noOfDependents=0;
+  ngOnInit(): void {
+    this.trus={
+      id: "T1",
+      name: "Dikshant",
+      gender: "male",
+      country: "India",
+      passport: "D@123",
+      date: new Date(),
+      dependent: 4
+
+    };
+
+    setTimeout(()=>{
+      this.trusteeForm.setValue(this.trus);
+    })
+    
+  }
+
+  changeCountry(){
+    this.trusteeForm.controls['country'].setValue("1");
    }
 
+   changeDate(){
+     this.trusteeForm.controls['date'].setValue(new Date());
+   }
+
+  
+  onSubmit(trusteeForm:any){
+    console.log(trusteeForm);
+  }
 }

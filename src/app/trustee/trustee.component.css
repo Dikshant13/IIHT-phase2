@@ -1,4 +1,14 @@
 .error{
-    color: red;
-    border: 1px solid red;
+    background-color: grey;
+    opacity: .7;
+    color: white;
+    padding-left: 450px;
+}
+#container{
+    margin:60px;
+    padding:60px;
+    background-color: rgb(183, 99, 248);
+    border:none;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 25px;
 }

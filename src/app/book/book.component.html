@@ -1,186 +1,154 @@
-<!DOCTYPE html>
-
-    <html lang="en">
-
-    <head>
-
-      <title>Angular Forms</title>
-
-      <meta charset="utf-8">
-
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    </head>
+<appnav></appnav>
+ <html>
+    <head></head>
 
     <body>
+      <br>
+      <div class="container"> 
+        <!-- <div *ngIf="bookForm.valid" class="alert alert-success" role="alert">
+          Congratulations!!! You have correctly given all the form inputs.
+        </div>  -->
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" [routerLink]="['book']">Book<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['trustee']">Trustee</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['about-us']">About-us</a>
-                  </li>
-          
-                  </ul>
-                </div></nav>
-          
-            
-
-
-
-
-
-
-    <div class="container">
-
-    <h1>{{pageTitle}}</h1>
-
-      <form autocomplete="false" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
-
- 
-
-        <div class="form-group">
-
-              <label for="id">Id : </label>
-
-              <input class="form-control" type="text" name="id" id="id" formControlName="id">
-
-              <div *ngIf="id">
-
-                <div *ngIf="!id.valid && (id.dirty || id.touched)">
-
-                <div [hidden]="!id.errors?.['required']" style="color: blue;">Id is required</div>
-
-              </div>
-
+        <div class="card">
+            <div class="card-header" style="background-color: skyblue; height: 50px; font-size: 30px; font-weight: bold; text-align:center;font-family: Georgia, 'Times New Roman', Times, serif;">
+              Book Form
             </div>
+            <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+            <div class="card-body">
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">ID</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="colFormLabel" name="id" formControlName="id" placeholder="Enter ID">
+                    </div>
+                  </div>
+                  <div *ngIf="id">
+                    <div *ngIf="!id.valid && (id.dirty || id.touched)" class="alert alert-warning" role="alert">
+              
+                      <div *ngIf="id.errors?.['required']">
+                          Id is required
+                      </div>
+                      <div *ngIf="id.errors?.['max']">
+                        Maximum Value of ID can be 500
+                    </div>
+                    <div *ngIf="id.errors?.['min']">
+                        Minimum Value of ID is 1
+                    </div>
+              
+                      </div>
+                    </div>
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">TITLE</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="colFormLabel" name="title" formControlName="title" placeholder="Enter Book Title">
+                    </div>
+                  </div>
+                  <div *ngIf="title">
+                    <div *ngIf="!title.valid && (title.dirty || title.touched)" class="alert alert-warning" role="alert">
+              
+                      <div *ngIf="title.errors?.['required']">
+                        Book Title is required
+                      </div>
+                      <div *ngIf="title.errors?.['minlength']">
+                        Minimum Length of Book Title is 3
+                    </div>
+              
+                      </div>
+                      </div>
 
-        </div>
+                  <div formGroupName="author">
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">AUTHOR NAME</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="colFormLabel" name="name" formControlName="name" placeholder="Enter Author Name">
+                    </div>
+                  </div>
+                  <div *ngIf="name">
+                    <div *ngIf="!name.valid && (name.dirty || name.touched)" class="alert alert-warning" role="alert">
+              
+                      <div *ngIf="name.errors?.['required']">
+                        Author Name is required
+                      </div>
+                      <div *ngIf="name.errors?.['minlength']">
+                        Minimum Length of Book Title is 5
+                    </div>
+                    <div *ngIf="name.errors?.['maxlength']">
+                        Maximum Length of Book Title is 15
+                    </div>
+              
+                      </div>
+                      </div>
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">AUTHOR EMAIL ID</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" name="email" formControlName="email" placeholder="Enter Author Email ID">
+                    </div>
+                  </div>
+                  <div *ngIf="email">
+                    <div *ngIf="!email.valid && (email.dirty || email.touched)" class="alert alert-warning" role="alert">
+              
+                      <div *ngIf="email.errors?.['required']">
+                        Email ID of Author is required
+                      </div>
+                      <div *ngIf="email.errors?.['email']">
+                        Please Provide Email In Correct Format
+                    </div>
+              
+                      </div>
+                      </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">DATE OF PUBLISHING</label>
+                    <div class="col-sm-10">
+                      <input type="date" class="form-control" id="colFormLabel" name="dateofpublishing" formControlName="dateofpublishing">
+                    </div>
+                  </div>
+                  <div *ngIf="dateofpublishing">
+                    <div *ngIf="!dateofpublishing.valid && (dateofpublishing.dirty || dateofpublishing.touched)" class="alert alert-warning" role="alert">
+              
+                      <div *ngIf="dateofpublishing.errors?.['required']">
+                        Publishing Date of Book is required
+                      </div>
+                      
+                      </div>
+                      </div>
 
- 
-
-        <div class="form-group">
-
-            <label for="title"> Book Title : </label>
-
-            <input class="form-control" type="text" name="title" id="title" formControlName="title">
-
-        <div *ngIf="title">
-
-          <div *ngIf="!title.valid && (title.dirty || title.touched)">
-
-            <div [hidden]="!title.errors?.['required']" style="color: blue;">Title is required</div>
-
-          </div>
-
-        </div>
-
-        </div>
-
- 
-
-        <div class="form-group">
-
-          <div formGroupName="author">
-
-                <label for="author_name">Author Name:</label>
-
-                <input class="form-control"  type="text" name="author_name" id="author_name" formControlName="author_name">
-
-            <div *ngIf="author_name">
-
-              <div *ngIf="!author_name.valid && (author_name.dirty || author_name.touched)">
-
-                    <div [hidden]="!author_name.errors?.['required']" style="color: blue;"> Author's name is required</div>
-
-              </div>
-
-            </div>
-
-                <label for="email">Email:</label>
-
-                <input  class="form-control" type="email" name="email" id="email" formControlName="email">
-
-            <div *ngIf="email">
-
-                <div *ngIf="!email.valid && (email.dirty || email.touched)">
-
-                    <div [hidden]="!email.errors?.['required']" style="color: blue;">Email is required</div>
+            <div formArrayName="publishers">
+              <div *ngFor="let pub of bookPublishers().controls; let pubIndex=index;">
+                <div [formGroupName]="pubIndex">
+                  Publisher {{pubIndex+1}}:
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">PUBLISHER NAME</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="colFormLabel" name="pubname" formControlName="pubname" placeholder="">
+                    </div>
+                  
+                  
+                      </div>
+          
+                 
+                  <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">CITY OF PUBLISHING</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="colFormLabel" name="city" formControlName="city" placeholder="">
+                    </div>
+                  </div>
+                  <button class="btn btn-warning" (click)="removePublisher(pubIndex)">REMOVE PUBLISHER</button>
 
                 </div>
+              </div>
 
             </div>
 
-        </div>
+            <button type="button" class="btn btn-success" (click)="addPublisher()" style="margin-top:12px;">ADD PUBLISHER</button>
+            </div>
 
-        </div>
-
- 
-
-        <div class="form-group">
-
-            <label for="dateofpublishing">Date of Publishing:</label>
-
-            <input class="form-control" type="date" name="dateofpublishing" id="dateofpublishing" formControlName="dateofpublishing">
-
-        <div *ngIf="dateofpublishing">
-
-          <div *ngIf="!dateofpublishing.valid && (dateofpublishing.dirty || dateofpublishing.touched)">
-
-            <div [hidden]="!dateofpublishing.errors?.['required']" style="color: blue;">Date of Publishing is required</div>
-
+            <div style="text-align: center; padding: 20px;">
+            <button type="submit" class="btn btn-primary" [disabled]="!bookForm.valid">SUBMIT</button>
+            <button type="reset" class="btn btn-warning" style="margin-left: 50px;">RESET</button>
+            </div>
+            </form>
+            
           </div>
-
-        </div>
-
-        </div>
-
-        <div class="form-group">
-
-        <div formArrayName="publisher">
-
-          <div *ngFor="let publishers of publisher().controls;let publisherIndex=index">
-
-              <div [formGroupName]="publisherIndex">
-
-                  {{publisherIndex}} <br>
-
-                  Publisher Name: <br>
-
-                  <input type="text" name="co_name" id="co_name" formControlName="co_name"> 
-
-                  Publisher Id: 
-
-                  <input type="number" name="co_id" id="co_id" formControlName="co_id"> 
-                  <button class="btn btn-success" (click)="removePublisher(publisherIndex)">Remove Publisher</button>
-              </div>
           </div>
-        </div>
-      </div>
-      <button class="btn btn-primary" style="color: black; background-color: red;"(click)="addPublisher()">Add Publisher</button>
-      <button class="btn btn-success"type="submit"  style="color: black;" [disabled]="!bookForm.valid">Submit</button>
-      <button class="btn btn-primary" type="reset" style="color: black; background-color: yellow;" (click)="resetForm()">Reset</button>
-
-      </form>
-      <p>{{bookForm.valid}}</p>
-      <p>{{bookForm.value | json}}</p>
-
-    </div>
     </body>
-    </html>
+</html> 

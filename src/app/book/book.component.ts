@@ -1,132 +1,79 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
 @Component({
-
-  selector: 'app-book-list',
-
+  selector: 'app-book',
   templateUrl: './book.component.html',
-
   styleUrls: ['./book.component.css']
-
 })
+export class BookComponent {
+  heading:string= 'Book Form';
+  bookForm:FormGroup;
 
-export class BookListComponent implements OnInit {
+  constructor(private formBuilder: FormBuilder){
+  this.bookForm=this.formBuilder.group({
+    id:['1',[Validators.required,Validators.max(500),Validators.min(1)]],
+    title:['Java',[Validators.required,Validators.minLength(3)]],
+    author:this.formBuilder.group({
 
-  pageTitle='Book-List';
+      name:['Dikshant',[Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+      email:['dikshant@gmail.com',[Validators.required, Validators.email]]
+     
+     }),
+     dateofpublishing:['2019-03-06',[Validators.required]],
+     publishers:this.formBuilder.array([])
 
-  bookForm!:FormGroup;
+  })
+}
 
-   constructor(private formBuilder:FormBuilder) {}
-
-   ngOnInit(): void {
-
-    this.bookForm=this.formBuilder.group({
-
+bookPublishers():FormArray{
+  return this.bookForm.get('publishers') as FormArray;
+}
 
 
-         id:["1",[Validators.required,Validators.max(15)]],
+newPublisher():FormGroup{
+  return this.formBuilder.group({
+    pubname:['',[Validators.required, Validators.minLength(5),Validators.maxLength(20)]],
+    city:''
+  });
+}
 
-         title:['The Secret',[Validators.required,Validators.minLength(6)]],
+addPublisher(){
+  this.bookPublishers().push(this.newPublisher());
+}
 
-         author:this.formBuilder.group({
-
-            author_name:['John',[Validators.required,Validators.maxLength(15),Validators.minLength(3),Validators.pattern('^[a-zA-Z ]*$')]],
-
-            email:['John@gmail.com',[Validators.required,Validators.email]],
-
-         }),
-
-        dateofpublishing:['2021-06-05',[Validators.required]],
-
-        publisher:this.formBuilder.array([])
-
-    })
-
-  }
-
- 
-
-    publisher():FormArray{
-
-      return this.bookForm.get('publisher') as FormArray;
-
-    }
-
-    newPublisher():FormGroup{
-
-      return this.formBuilder.group({
-
-         co_name:'',
-
-         co_id:'',
-
-      })
-
-    }
+removePublisher(pubIndex:number){
+  this.bookPublishers().removeAt(pubIndex);
+}
 
 
 
-    addPublisher(){
+get id():any{
+  return this.bookForm.get("id");
+}
 
-      this.publisher().push(this.newPublisher());
+get title():any{
+  return this.bookForm.get("title");
+}
 
-    }
+get name():any{
+  return this.bookForm.get("author")?.get("name");
+}
 
-    removePublisher(publisherIndex:number){
+get email():any{
+  return this.bookForm.get("author")?.get("email");
+}
 
-      this.publisher().removeAt(publisherIndex)
+get dateofpublishing():any{
+  return this.bookForm.get("dateofpublishing");
+}
 
-    }
-
-    get id(){
-
-      return this.bookForm.get("id");
-
-    }
-
-
-
-    get title(){
-
-      return this.bookForm.get("title");
-
-    }
-
-
-
-    get author_name(){
-
-      return this.bookForm.get("author")?.get("author_name");
-
-    }
-
-
-    get email(){
-
-       return this.bookForm.get("author")?.get("email");
-
-    }
-
-
-    get dateofpublishing(){
-
-     return this.bookForm.get("dateofpublishing");
-
-    }
-
-    onSubmit(){
-
-      console.log('Form submitted');
-
-      console.log(this.bookForm.value);
-
-    }
-
-    resetForm() {
-
-    }
+onSubmit():void{
+  console.log(this.bookForm.value);
+}
 
 }
+
+
+
+

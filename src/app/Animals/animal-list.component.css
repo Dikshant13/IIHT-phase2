@@ -1,10 +1,3 @@
-body{
-    background-color: green;
-
-}
-
-img:hover{
-    transform: scale(1.3);
-    transition-duration: 2s;
-    box-shadow: 1px 1px red;
+.card{
+    background-color: rgb(94, 157, 244);
 }

@@ -1,14 +1,30 @@
 h1{
-    margin: 100px 10px;
-    border: 1px solid black;
-    background-color: red;
-    padding: 5px;
+    background-color: antiquewhite;
+    color:brown;
+    border: 1px solid;
+    border-radius: 20px;
+    text-align: center;
+}
+#container{
+    display: flex;
 }
 
-div{
-    flex: 50%;
+.animal{
+    width: 80%;
+    margin: auto;
 }
-.container{
+.cont{
     display: flex;
-    
+}
+#div1{
+    width: 70%;
+}
+#div2{
+    width: 30%;
+    padding: 20px;
+    height: 600px;
+    background-color: coral;
+}
+body{
+    padding: 0px;
 }

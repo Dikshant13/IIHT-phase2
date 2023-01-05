@@ -1,3 +1,12 @@
-.container {
-    background-color: azure;
+.container{
+    width: 55%;
+    margin:auto;
+    padding: 25px;
+    background-color: rgb(204, 229, 255);
+    border: none;
+    border-radius: 40px;
+}
+body{
+    background: linear-gradient(to right, #eff7f6, #eff7f6);
+    
 }
