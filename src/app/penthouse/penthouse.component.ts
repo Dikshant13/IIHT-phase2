@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./penthouse.component.css']
 })
 export class PenthouseComponent {
-  address:string='Pune';
-  name:string='Gaurav';
+  address:string='Kolkata';
+  name:string='Disney';
 }

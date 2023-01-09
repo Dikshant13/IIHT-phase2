@@ -54,7 +54,7 @@ export class FlowerService{
             "id":'',
             "name":'Flower',
             "place":'Kolkata',
-            "image":"\\assets\\images\\rose.jpeg",
+            "image":"\\assets\\images\\rose.jpg",
             "price":200,
             "quantity":0
         };

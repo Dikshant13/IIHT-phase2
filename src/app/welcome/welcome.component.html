@@ -1,10 +1,10 @@
-<appnav></appnav>
+<!-- <appnav></appnav> -->
 <h3 extrastyling>Adding green in directive</h3>
 
 <button (click)="logValue()">Print</button>
 <h2>Welcome {{name}} into Welcome Component.</h2>
 
-<p>{{name | repeatData:4 }}</p>
+<p>{{name | repeatData:3 }}</p>
 <p>{{title | transformData:'-'}}</p>
 <input type="text" [(ngModel)]="num" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
 
@@ -16,22 +16,22 @@
     <div *ngSwitchCase="3">Three</div>
     <div *ngSwitchCase="4">Four</div>
 </div>
-
+<!-- 
 <greeting>
     <h1>hello world!!</h1>
     <button class="btn btn-default">say hello</button>
     <p att1>This is a para</p>
   </greeting>
-  
-  <greeting>
+   -->
+  <!-- <greeting>
     <h1 att1 class="h1">Amit</h1>
     <button class="btn btn-info">click here to see Amit's details</button>
-  </greeting>
+  </greeting> -->
   
-  
+<!--   
   <greeting>
     <h1 class="h1">Shalini</h1>
     <button class="btn btn-warning">click here to see Shalini's details</button>
-  </greeting>
+  </greeting> -->
 
   <router-outlet></router-outlet>

@@ -1,10 +1,10 @@
 p{
-    background-color: yellow;
-    color: red;
+    background-color: cyan;
+    color: green;
     border: 1px solid;
-    text-align: right;
-    height: 45px;
-    font-size: 25px;
-    margin:15px;
-    border-radius: 15px;
+    text-align: center;
+    height: 40px;
+    font-size: 30px;
+    margin:10px;
+    border-radius: 25px;
 }

@@ -10,7 +10,7 @@ import { Component, ContentChild, ElementRef, ViewChild, Renderer2 } from "@angu
            </div>
     `,
     styles: [
-      ` .card {  margin: auto; margin-top:10px; background-color: grey; border:none; border-radius:10px; width:60%; text-align:center; padding:10px; font-size:20px; color:purple; }
+      ` .card {  margin: auto; margin-top:10px; background-color: pink; border:none; border-radius:10px; width:60%; text-align:center; padding:10px; font-size:20px; color:purple; }
       `
     ]
   })
@@ -25,30 +25,30 @@ import { Component, ContentChild, ElementRef, ViewChild, Renderer2 } from "@angu
   
   
     constructor(private renderor:Renderer2) {
-      console.log("CardComponent ->constructor "+this.cardContentHeader)
+      //console.log("CardComponent ->constructor "+this.cardContentHeader)
     }
   
     ngOnChanges() {
       
-      console.log("CardComponent ->ngOnChanges "+this.cardContentHeader)
+      //console.log("CardComponent ->ngOnChanges "+this.cardContentHeader)
     }
   
     ngOnInit() {
     
-      console.log("CardComponent ->ngOnInit "+this.cardContentHeader);
+      //console.log("CardComponent ->ngOnInit "+this.cardContentHeader);
       //this.renderor.setStyle(this.footerContent.nativeElement,"background-color","skyblue")
     }
   
     ngDoCheck() {
       
-      console.log("CardComponent ->ngDoCheck "+this.cardContentHeader)
+      //console.log("CardComponent ->ngDoCheck "+this.cardContentHeader)
     }
   
     ngAfterContentInit() {
       
-      console.log("CardComponent ->ngAfterContentInit-contentHeader "+this.cardContentHeader)
+      //console.log("CardComponent ->ngAfterContentInit-contentHeader "+this.cardContentHeader)
   
-      this.renderor.setStyle(this.cardContentHeader.nativeElement,"background-color","green");
+      this.renderor.setStyle(this.cardContentHeader.nativeElement,"background-color","yellow");
       this.renderor.setStyle(this.footerContent.nativeElement,"background-color","skyblue")
   
       
@@ -56,15 +56,15 @@ import { Component, ContentChild, ElementRef, ViewChild, Renderer2 } from "@angu
   
     ngAfterContentChecked() {
       
-      console.log("CardComponent ->ngAfterContentInit-contentHeader "+this.cardContentHeader)
+     // console.log("CardComponent ->ngAfterContentInit-contentHeader "+this.cardContentHeader)
     }
   
     ngAfterViewInit() {
-      console.log("CardComponent ->ngAfterViewInit-viewHeader "+this.cardViewHeader)
+      //console.log("CardComponent ->ngAfterViewInit-viewHeader "+this.cardViewHeader)
     }
   
     ngAfterViewChecked() {
-      console.log("CardComponent ->ngAfterViewChecked-viewHeader "+this.cardViewHeader)
+     // console.log("CardComponent ->ngAfterViewChecked-viewHeader "+this.cardViewHeader)
     }
   
   

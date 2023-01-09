@@ -1,16 +1,17 @@
-<appnav></appnav>
- <html>
+
+<html>
     <head></head>
 
     <body>
-      <br>
-      <div class="container"> 
+
+      <div class="container">
         <!-- <div *ngIf="bookForm.valid" class="alert alert-success" role="alert">
           Congratulations!!! You have correctly given all the form inputs.
-        </div>  -->
+        </div> -->
 
         <div class="card">
-            <div class="card-header" style="background-color: skyblue; height: 50px; font-size: 30px; font-weight: bold; text-align:center;font-family: Georgia, 'Times New Roman', Times, serif;">
+          <!-- <mat-card> -->
+            <div class="card-header" style="background-color: skyblue; height: 50px; font-size: 30px; text-align:center;font-weight:  bold; font-family: Georgia, 'Times New Roman', Times, serif;">
               Book Form
             </div>
             <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
@@ -27,6 +28,7 @@
                       <div *ngIf="id.errors?.['required']">
                           Id is required
                       </div>
+                      
                       <div *ngIf="id.errors?.['max']">
                         Maximum Value of ID can be 500
                     </div>
@@ -109,6 +111,8 @@
                         Publishing Date of Book is required
                       </div>
                       
+                      
+              
                       </div>
                       </div>
 
@@ -119,7 +123,7 @@
                   <div class="row mb-3">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">PUBLISHER NAME</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="colFormLabel" name="pubname" formControlName="pubname" placeholder="">
+                      <input type="text" class="form-control" id="colFormLabel" name="pubname" formControlName="pubname" placeholder="Enter Name Of Publisher">
                     </div>
                   
                   
@@ -129,7 +133,7 @@
                   <div class="row mb-3">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">CITY OF PUBLISHING</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="colFormLabel" name="city" formControlName="city" placeholder="">
+                      <input type="text" class="form-control" id="colFormLabel" name="city" formControlName="city" placeholder="Enter City Of Publishing">
                     </div>
                   </div>
                   <button class="btn btn-warning" (click)="removePublisher(pubIndex)">REMOVE PUBLISHER</button>
@@ -139,16 +143,17 @@
 
             </div>
 
-            <button type="button" class="btn btn-success" (click)="addPublisher()" style="margin-top:12px;">ADD PUBLISHER</button>
+            <button type="button" class="btn btn-success" (click)="addPublisher()" style="margin-top:10px;">ADD PUBLISHER</button>
             </div>
 
             <div style="text-align: center; padding: 20px;">
             <button type="submit" class="btn btn-primary" [disabled]="!bookForm.valid">SUBMIT</button>
-            <button type="reset" class="btn btn-warning" style="margin-left: 50px;">RESET</button>
+            <button type="reset" class="btn btn-warning" style="margin-left: 30px;">RESET</button>
             </div>
             </form>
             
           </div>
+        <!-- </mat-card> -->
           </div>
     </body>
-</html> 
+</html>

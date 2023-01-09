@@ -13,14 +13,14 @@ export class BookComponent {
   constructor(private formBuilder: FormBuilder){
   this.bookForm=this.formBuilder.group({
     id:['1',[Validators.required,Validators.max(500),Validators.min(1)]],
-    title:['Java',[Validators.required,Validators.minLength(3)]],
+    title:['secret',[Validators.required,Validators.minLength(3)]],
     author:this.formBuilder.group({
 
-      name:['Dikshant',[Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
-      email:['dikshant@gmail.com',[Validators.required, Validators.email]]
+      name:['Dikshant',[Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
+      email:['Dikshant@gmail.com',[Validators.required, Validators.email]]
      
      }),
-     dateofpublishing:['2019-03-06',[Validators.required]],
+     dateofpublishing:['2021-02-04',[Validators.required]],
      publishers:this.formBuilder.array([])
 
   })
@@ -29,7 +29,6 @@ export class BookComponent {
 bookPublishers():FormArray{
   return this.bookForm.get('publishers') as FormArray;
 }
-
 
 newPublisher():FormGroup{
   return this.formBuilder.group({
@@ -72,8 +71,7 @@ onSubmit():void{
   console.log(this.bookForm.value);
 }
 
+
+  
+
 }
-
-
-
-

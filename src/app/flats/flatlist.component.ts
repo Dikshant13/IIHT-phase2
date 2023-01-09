@@ -9,7 +9,7 @@ export class FlatlistComponent {
 
   flats:any[]=[{
     number: 'F101',
-    address: 'Pune',
+    address: 'Kolkata',
     name: 'Flat1'
   }]
 }

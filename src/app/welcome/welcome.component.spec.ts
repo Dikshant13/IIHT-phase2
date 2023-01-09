@@ -26,9 +26,9 @@ describe('WelcomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display data as 10',()=>{
+  it('should display data as 20',()=>{
  
-    component.num =11;
+    component.num =20;
     fixture.detectChanges();
 
     
@@ -38,13 +38,13 @@ describe('WelcomeComponent', () => {
 
     const h1Element:HTMLElement= h1.nativeElement;
 
-    expect(h1Element.textContent).toContain('11');
+    expect(h1Element.textContent).toContain('20');
 
   })
 
   it('should display Dikshant',()=>{
 
-    component.name='DikshantDemo';
+    component.name='Dikshant';
 
     fixture.detectChanges();
 
@@ -54,7 +54,7 @@ describe('WelcomeComponent', () => {
     const h2 =rootEle.query(By.css('#msg2'));
 
     const h2Element:HTMLElement= h2.nativeElement;
-    expect(h2Element.textContent).toContain('DikshantDemo');
+    expect(h2Element.textContent).toContain('Dikshant');
 
 
   })

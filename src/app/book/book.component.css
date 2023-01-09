@@ -1,12 +1,12 @@
 .container{
-    width: 55%;
+    width: 70%;
     margin:auto;
-    padding: 25px;
-    background-color: rgb(204, 229, 255);
+    padding: 50px;
+    /* background-color: rgb(251, 251, 249); */
     border: none;
-    border-radius: 40px;
+    border-radius: 25px;
 }
 body{
-    background: linear-gradient(to right, #eff7f6, #eff7f6);
+    background: linear-gradient(to right, #f3f8f7, #eeeff4);
     
 }

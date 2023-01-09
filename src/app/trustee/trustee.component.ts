@@ -27,24 +27,23 @@ export class TrusteeComponent implements OnInit{
 
   countries:country[]=[
     new country("1","India"),
-    new country("2","Germany"),
-    new country("3","New Zealand"),
-    new country("4","Japan"),
-    new country("5","America"),
-    new country("6","Austraila")
+    new country("2","Japan"),
+    new country("3","Australia"),
+    new country("4","Germany"),
+    new country("5","America")
   ];
 
   trus!:Trustee;
 
   ngOnInit(): void {
     this.trus={
-      id: "T1",
-      name: "Dikshant",
-      gender: "male",
+      id: "T111",
+      name: "Ayantika",
+      gender: "female",
       country: "India",
-      passport: "D@123",
+      passport: "PASSS12345",
       date: new Date(),
-      dependent: 4
+      dependent: 5
 
     };
 

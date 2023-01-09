@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+// import { FoodComponent } from './food/food.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PenthouseComponent } from './penthouse/penthouse.component';
@@ -8,9 +9,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { FlatlistComponent } from './flats/flatlist.component';
 import { AnimalListComponent } from './animals/animal-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductListComponent } from './products/product-list.component';
+//import { ProductListComponent } from './products/product-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { StarIconComponent } from './star/star-icon.component';
+//import { StarIconComponent } from './star/star-icon.component';
 import { CartComponent } from './carts/cart.component';
 import { RepeatDataPipe } from './repeat-data.pipe';
 import { TransformDataPipe } from './transform-data.pipe';
@@ -29,7 +30,7 @@ import { AppnavComponent } from './appnav/appnav.component';
 import { ApphomeComponent } from './apphome/apphome.component';
 import { AppaboutComponent } from './appabout/appabout.component';
 import { AnimalDetailsComponent } from './animals/animal-details.component';
-import { ProductAddComponent } from './products/product-add.component';
+//import { ProductAddComponent } from './products/product-add.component';
 import { FlowerListComponent } from './flowers/flower-list.component';
 import { LoginComponent } from './users/login.component';
 import { AddFlowerComponent } from './flowers/add-flower.component';
@@ -37,14 +38,15 @@ import { EditFlowerComponent } from './flowers/edit-flower.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { CardComponent } from './cards/card.component';
 import { CardListComponent } from './cards/cardlist.component';
-
-
-
-// added import today
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effect';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
+
+import { MatInputModule } from "@angular/material/input";
+import { ContactComponent } from './contact/contact.component';
+
+
 
 
 
@@ -57,8 +59,8 @@ import { AppEffects } from './app.effects';
    WelcomeComponent,
    FlatlistComponent,
    AnimalListComponent,
-   ProductListComponent,
-   StarIconComponent,
+   //ProductListComponent,
+  // StarIconComponent,
    CartComponent,
    RepeatDataPipe,
    TransformDataPipe,
@@ -73,32 +75,37 @@ import { AppEffects } from './app.effects';
    ApphomeComponent,
    AppaboutComponent,
    AnimalDetailsComponent,
-   ProductAddComponent,
+   //ProductAddComponent,
    FlowerListComponent,
    LoginComponent,
    AddFlowerComponent,
    EditFlowerComponent,
    GreetingComponent,
    CardComponent,
-   CardListComponent
+   CardListComponent,
+   ContactComponent,
+   
+   
+   
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     NgbModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-
-    StoreModule.forRoot({}),
+    HttpClientModule,
+    InMemoryWebApiModule,
+    //EffectsModule.forRoot([AppEffects]),
+StoreModule.forRoot({}),
     //have to create AppEffects
     EffectsModule.forRoot([AppEffects]),
     StoreDevtoolsModule.instrument(),
-
-
-    HttpClientModule,
-    InMemoryWebApiModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryEventDbService)
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryEventDbService),
+    MatInputModule,
   ],
+  exports:[],
   providers: [],
   bootstrap: [AppComponent]
 })

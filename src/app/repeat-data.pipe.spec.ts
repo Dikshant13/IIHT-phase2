@@ -9,8 +9,8 @@ describe('RepeatDataPipe', () => {
   it("should return repeating values",()=>{
     let repeat:RepeatDataPipe=new RepeatDataPipe();
 
-    let str=repeat.transform("dikshant",2);
+    let str=repeat.transform("ayantika",2);
 
-    expect(str).toEqual("dikshant dikshant ");
+    expect(str).toEqual("ayantika ayantika ");
   });
 });

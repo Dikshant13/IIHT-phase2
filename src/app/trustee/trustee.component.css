@@ -1,14 +1,12 @@
 .error{
-    background-color: grey;
-    opacity: .7;
+    background-color: red;
     color: white;
-    padding-left: 450px;
+    padding-left: 50px;
 }
 #container{
-    margin:60px;
-    padding:60px;
-    background-color: rgb(183, 99, 248);
+    margin:50px;
+    padding:50px;
+    background-color: pink;
     border:none;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     border-radius: 25px;
 }

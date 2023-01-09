@@ -1,6 +1,6 @@
+import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
-import { ngbCarouselTransitionOut } from "@ng-bootstrap/ng-bootstrap/carousel/carousel-transition";
-import { Subject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 
 @Component({
     selector: 'card-list',
@@ -25,9 +25,32 @@ import { Subject } from "rxjs";
         ``
     ]
   })
-  export class CardListComponent  implements OnInit{
+  export class CardListComponent implements OnInit{
+
+    constructor(private http:HttpClient){}
+
   ngOnInit(): void {
-    
-    
+    const obs1= new Observable((data)=>data.next(Math.random()));
+
+    obs1.subscribe(d=>console.log(d));
+
+    obs1.subscribe(d=>console.log(d));
+
+    const subject=new Subject();
+
+    subject.subscribe(d=>console.log(d));
+    subject.subscribe(d=>console.log(d));
+
+    subject.next(Math.random());
+
+    const subject1=new Subject();
+
+    const data=this.http.get("/api/products");
+
+    data.subscribe(d=>console.log(d));
+    data.subscribe(d=>console.log(d));
+
+    const result=data.subscribe(subject1);
   }
+  
   }

@@ -1,19 +1,25 @@
+
+<br><div class="container">
 <div class="card">
 
-
-    <div class="card-header">To Do List</div>
+<br>
+    <div class="card-header" >To Do List</div><br>
     <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
-    <input type="text" name="todo" id="todo"  #todo="ngModel" ngModel>
+    <input style="margin-left:20px" type="text" name="todo" id="todo"  #todo="ngModel" ngModel>
   
-    <input type="submit" value="Add ToDo">
+    <input style="color: blue; margin-left: 20px; " type="submit" value="Add ToDo">
   </form>
-  <ul>
-    <div *ngIf="allTodos$">
+  <ul><br>
+  
     <div *ngFor="let todo of allTodos$ | async">
   
-  <li (click)="removeTodo(todo)" >{{todo.content}}
-    </li>
+
+        <li>{{todo.content}} <span style="color:black;background-color: aquamarine;size:small;" class = " btn btn-danger" (click)="removeTodo(todo)">x</span></li>
+  <!-- <li (click)="removeTodo(todo)" >{{todo.content}} -->
+    <!-- </li> -->
   
 
-  </div></div></ul>
+
+  </div></ul>
+  </div>
   </div>

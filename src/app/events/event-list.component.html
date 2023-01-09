@@ -1,4 +1,4 @@
-<appnav></appnav>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -11,8 +11,14 @@
   <div class="card-group">
     
   
-    <div class="card text-center" *ngFor="let ev of events" style="background-color: pink; border-radius: 25px; margin:20px">
+    <div class="card text-center" *ngFor="let ev of events" style="background-color: rgb(147, 215, 247); border-radius: 25px; margin:20px;height: 400px; width: 400px;transition: 3s;"
     
+    
+    (mouseover)="applyAnimation($event)"
+    (mouseout)="applyAnimation($event)"
+    [@enlarge]="isHovering ? 'end' : 'start'">
+    
+
      <app-event-details [event]="ev"></app-event-details>
     </div>
   </div>

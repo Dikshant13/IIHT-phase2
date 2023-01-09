@@ -1,5 +1,3 @@
-
-
 export interface Trustee{
     id:string,
     name:string,
