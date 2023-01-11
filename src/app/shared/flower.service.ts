@@ -8,6 +8,9 @@ import { IFlower } from "src/app/flowers/flower";
 })
 
 export class FlowerService{
+    createCar(car: any) {
+        throw new Error('Method not implemented.');
+    }
 
     foundIndex:number=0;
      url="api/flowers";

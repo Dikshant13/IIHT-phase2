@@ -3,6 +3,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Animal } from "src/app/animals/animal";
 import { IEvent } from "src/app/events/event";
 import { IFlower } from "src/app/flowers/flower";
+import { ICar } from "../cars/car";
 import { Category, IProduct } from "src/app/products/product";
 // import { Todo } from "../todo/todo.module";
 import { Todo } from "../todo/todo.model";
@@ -359,10 +360,69 @@ export class InMemoryEventDbService implements InMemoryDbService{
 
         ]
 
+
+
+
+
+
+
+
+
+        const cars:ICar[]=[
+          {
+            id: "C1",
+            name: " Maruti Swift",
+            place: "Delhi",
+            price: 800000,
+            image: "../../assets/images/swift.jpg",
+            quantity: 20
+          },
+          {
+            id: "C2",
+            name: " Hyndai I20",
+            place: "Pune",
+            price: 1000000,
+            image: "../../assets/images/i20.png",
+            quantity: 30
+          },
+          {
+            id: "C3",
+            name: " Tata Altroz",
+            place: "Punjab",
+            price: 950000,
+            image: "../../assets/images/altroz.jpg",
+            quantity: 40
+          },
+          {
+            id: "C4",
+            name: "Kia-Sonet",
+            place: "Kolkata",
+            price: 1200000,
+            image: "../../assets/images/sonet.jpg",
+            quantity: 35
+          },
+          {
+            id: "C5",
+            name: " Tata Punch",
+            place: "Chennai",
+            price: 750000,
+            image: "../../assets/images/punch.jpg",
+            quantity: 39
+          },
+          {
+            id: "C6",
+            name: " Maruti Baleno",
+            place: "Hyderabad",
+            price: 890000,
+            image: "../../assets/images/baleno.jpg",
+            quantity: 65
+          }
+        ];
+
         
         
 
-        return {events,animals,flowers,todos, products};
+        return {events,animals,flowers,todos, products,cars};
     }
 
 }

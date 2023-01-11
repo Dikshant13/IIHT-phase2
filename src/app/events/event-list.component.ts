@@ -9,17 +9,34 @@ import { State } from '@ngrx/store';
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.css'],
 
+  // animations:[
+  //   trigger('enlarge',[
+  //     state('start',style({
+  //       width:'250px', height:'250px',
+  //     })),
+
+  //     state('end',style({
+  //       height:'350px',width:'350px',
+  //     })),
+  //     transition('void=>start',animate('1s linear')),
+  //     transition('end=>void',animate('2s ease-in'))
+  //   ])
+  // ]
   animations:[
     trigger('enlarge',[
       state('start',style({
-        width:'250px', height:'250px',
+        width:'300px' , height:'300px', backgroundColor:'cyan'
+       })),
+       state('end',style({
+        height:'400px',width:'400px', backgroundColor: 'green'
       })),
+      transition('start=>end',[
+        animate('1s 2s')
+      ]),
+      transition('end=>start',[
+        animate('1s 2s')
+      ])
 
-      state('end',style({
-        height:'350px',width:'350px',
-      })),
-      transition('void=>start',animate('1s linear')),
-      transition('end=>void',animate('2s ease-in'))
     ])
   ]
 
@@ -31,12 +48,14 @@ export class EventListComponent implements OnInit,OnDestroy{
 
 // added
   isHovering:boolean=false;
+  
 
 
   //
   sub!:Subscription;
 
   events:IEvent[]=[];
+  isClick: any;
 
   constructor(private eventService:EventService){}
   ngOnInit(): void {
@@ -59,5 +78,6 @@ export class EventListComponent implements OnInit,OnDestroy{
   applyAnimation($event:any){
     this.isHovering=!this.isHovering;
   }
+
 
 }

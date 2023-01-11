@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PenthouseComponent } from './penthouse/penthouse.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { FlatlistComponent } from './flats/flatlist.component';
+// import { FlagListComponent } from './flats/flag-list.component';
 import { AnimalListComponent } from './animals/animal-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { ProductListComponent } from './products/product-list.component';
@@ -45,19 +45,26 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { MatInputModule } from "@angular/material/input";
 import { ContactComponent } from './contact/contact.component';
+// import { MaterialModule } from 'src/material.module';
+// import { CarListComponent } from './car-list/car-list.component';
+// import { MaterialModule } from 'src/material.module';
+import { MaterialModule } from 'src/material.module';
+import { CarListComponent } from './cars/car-list.component';
+import { AddCarComponent } from './cars/add-car.component';
+import { EditCarComponent } from './cars/edit-car.component';
+import { FormComponent } from './form/form.component';
 
-
-
-
-
-
-
+// import { FlatListComponent } from './flats/flat-list.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { FlatListComponent } from './flats/flag-list.component';
+import { ToolbarComponent } from './myMat/toolbar.component';
+import { ManagerHomeComponent } from './manager/manager-home.component';
 @NgModule({
   declarations: [
    AppComponent,
    PenthouseComponent,
    WelcomeComponent,
-   FlatlistComponent,
+  //  FlagListComponent,
    AnimalListComponent,
    //ProductListComponent,
   // StarIconComponent,
@@ -84,6 +91,17 @@ import { ContactComponent } from './contact/contact.component';
    CardComponent,
    CardListComponent,
    ContactComponent,
+   CarListComponent,
+   AddCarComponent,
+   EditCarComponent,
+   FormComponent,
+   FlatListComponent,
+   ToolbarComponent,
+   ManagerHomeComponent,
+   
+   
+   
+   
    
    
    

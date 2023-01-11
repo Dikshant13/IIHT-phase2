@@ -36,7 +36,8 @@ pageTitle:string='Log In';
         this.router.navigateByUrl(this.authService.redirectToUrl);
       }
       else{
-        this.router.navigate(['products']);
+        // this.router.navigate(['products']);
+        this.router.navigate(['manager']);
       }
 
 

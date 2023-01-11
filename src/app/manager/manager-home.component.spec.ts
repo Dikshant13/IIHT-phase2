@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FlatlistComponent } from './flatlist.component';
+import { ManagerHomeComponent } from './manager-home.component';
 
-describe('FlatlistComponent', () => {
-  let component: FlatlistComponent;
-  let fixture: ComponentFixture<FlatlistComponent>;
+describe('ManagerHomeComponent', () => {
+  let component: ManagerHomeComponent;
+  let fixture: ComponentFixture<ManagerHomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FlatlistComponent ]
+      declarations: [ ManagerHomeComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FlatlistComponent);
+    fixture = TestBed.createComponent(ManagerHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

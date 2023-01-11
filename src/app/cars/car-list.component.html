@@ -1,0 +1,46 @@
+<!-- <p>car-list works!</p> -->
+
+<div class="card">
+    <div class="card-header text-center ">
+      Car Details
+    </div>
+    <div class="card-body">
+        <table class="table table-hover table-white">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">PLACE</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">IMAGE</th>
+                <th scope="col">QUANTITY AVAILABLE</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let car of cars">
+                <th scope="row">{{car.id}}</th>
+                <td>{{car.name}}</td>
+                <td>{{car.price}}</td>
+                <td>{{car.place}}</td>
+                <td><img [src]='car.image' width='100px' height='80px'/></td>
+                <td>{{car.quantity}}</td>
+                <td><button class="btn btn-warning" (click)="carSelected(car)">EDIT</button></td>
+                <td><button class="btn btn-danger" (click)="deleteProduct(car)">DELETE</button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+          <div class="card-footer">
+            <div class="col-md-4 text-right">
+              <button class="btn btn-primary"
+              (click)="newCar()">Add a Car</button>
+      
+            </div>
+          </div>
+    </div>
+    
+  </div>
+  <!-- <div id="testcar" *ngIf="show">{{testCars|json}}</div> -->
+  <router-outlet></router-outlet>

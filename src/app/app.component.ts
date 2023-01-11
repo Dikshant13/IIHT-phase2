@@ -9,7 +9,7 @@ import { IProduct } from "./products/product";
 
 
 export class AppComponent{
-  pageTitle:string="Ayantika Datta";
+  pageTitle:string="Dikshant Labhane";
 
   addCart:IProduct[]=[];
 
